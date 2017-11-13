@@ -1,0 +1,3 @@
+[submodule "node-hikvision-api"]
+	path = node-hikvision-api
+	url = https://github.com/nayrnet/node-hikvision-api.git

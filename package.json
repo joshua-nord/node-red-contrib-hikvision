@@ -1,0 +1,14 @@
+{
+  "name": "node-red-contrib-hikvision",
+  "version": "0.1.0",
+  "description": "NodeRED support for Hikvision IP Cameras",
+  "main": "hikvision.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-hikvision-api": "file:node-hikvision-api"
+  }
+}

@@ -1,0 +1,79 @@
+<script type="text/javascript">
+    RED.nodes.registerType('hikvision-camera',{
+        category: 'config',
+        defaults: {
+            name: {value:''},
+            host: {value:'', required: true},
+            port: {value: 80, required: true, validate:RED.validators.number()},
+            log:  {value:false}
+        },
+        credentials: {
+            username: {type: 'text'},
+            password: {type: 'password'}
+        },        
+        label: function() {
+            return this.name || 'camera';
+        }
+    });
+    
+    RED.nodes.registerType('hikvision-alarm',{
+        category: 'output',
+        color: 'orange',
+        defaults: {
+            name: {value:''},
+            camera: {value:'', type:'hikvision-camera', required:true}
+        },
+        label: function() {
+            return this.name||'hikvision-alarm';
+        },
+        inputs: 0,
+        outputs: 1
+    });    
+</script>
+
+<script type="text/x-red" data-template-name="hikvision-camera">
+    <div class="form-row">
+        <label for="node-config-input-host"><i class="fa fa-globe"></i> <span>Host</span></label>
+        <input type="text" id="node-config-input-host" placeholder="Camera Host Name or IP Address">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-port">Port</label>
+        <input type="text" id="node-config-input-port">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-log">Log</label>
+        <input type="checkbox" id="node-config-input-log">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-username"><i class="fa fa-user"></i> <span data-i18n="common.label.username"></span></label>
+        <input type="text" id="node-config-input-username">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-password"><i class="fa fa-lock"></i> <span data-i18n="common.label.password"></span></label>
+        <input type="password" id="node-config-input-password">
+    </div>    
+    <div class="form-row">
+        <label for="node-config-input-name"><span>Name</span></label>
+        <input type="text" id="node-config-input-name">
+    </div>
+</script>
+
+<script type="text/x-red" data-template-name="hikvision-alarm">
+    <div class="form-row">
+        <label for="node-input-camera"><i class="fa fa-camera"></i> <span>Camera</span></label>
+        <input type="text" id="node-input-camera">
+    </div>
+    <div class="form-row">
+        <label for="node-input-name"><span>Name</span></label>
+        <input type="text" id="node-input-name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="hikvision-camera">
+    <p>TODO: Create help text</p>
+</script>
+
+
+<script type="text/x-red" data-help-name="hikvision-alarm">
+    <p>TODO: Create help text</p>
+</script>
